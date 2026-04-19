@@ -16,12 +16,12 @@ export default function App() {
   const [password, setPassword] = useState("");
 
   const handleKayit = () => {
-    // Şimdilik sadece butona basınca ne yazdığımızı görelim
-    Alert.alert("Bilgi", `E-posta: ${email} \nŞifre: ${password}`);
+    if (!email || !password) {
+      Alert.alert("Hata", "Lütfen e-posta ve şifre gir.");
+      return;
+    }
 
-    /* Supabase bağlantısı tamamlanınca burayı şöyle güncelleyeceğiz:
-       const { data, error } = await supabase.auth.signUp({ email, password });
-    */
+    Alert.alert("Bilgi", `E-posta: ${email} \nŞifre: ${password}`);
   };
 
   return (
